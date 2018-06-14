@@ -355,7 +355,7 @@ var HTML5AudioSoundManager = new Class({
     },
 
     /**
-     * @event Phaser.Sound.HTML5AudioSoundManager#muteEvent
+     * @xevent Phaser.Sound.HTML5AudioSoundManager#muteEvent
      * @param {Phaser.Sound.HTML5AudioSoundManager} soundManager - Reference to the sound manager that emitted event.
      * @param {boolean} value - An updated value of Phaser.Sound.HTML5AudioSoundManager#mute property.
      */
@@ -364,7 +364,7 @@ var HTML5AudioSoundManager = new Class({
      * Sets the muted state of all this Sound Manager.
      *
      * @method Phaser.Sound.HTML5AudioSoundManager#setMute
-     * @fires Phaser.Sound.HTML5AudioSoundManager#muteEvent
+     * @xfires Phaser.Sound.HTML5AudioSoundManager#muteEvent
      * @since 3.3.0
      *
      * @param {boolean} value - `true` to mute all sounds, `false` to unmute them.
@@ -381,7 +381,7 @@ var HTML5AudioSoundManager = new Class({
     /**
      * @name Phaser.Sound.HTML5AudioSoundManager#mute
      * @type {boolean}
-     * @fires Phaser.Sound.HTML5AudioSoundManager#muteEvent
+     * @xfires Phaser.Sound.HTML5AudioSoundManager#muteEvent
      * @since 3.0.0
      */
     mute: {
@@ -400,13 +400,13 @@ var HTML5AudioSoundManager = new Class({
                 sound.updateMute();
             });
 
-            this.emit('mute', this, value);
+            this.xemit('mute', this, value);
         }
 
     },
 
     /**
-     * @event Phaser.Sound.HTML5AudioSoundManager#volumeEvent
+     * @xevent Phaser.Sound.HTML5AudioSoundManager#volumeEvent
      * @param {Phaser.Sound.HTML5AudioSoundManager} soundManager - Reference to the sound manager that emitted event.
      * @param {number} value - An updated value of Phaser.Sound.HTML5AudioSoundManager#volume property.
      */
@@ -415,7 +415,7 @@ var HTML5AudioSoundManager = new Class({
      * Sets the volume of this Sound Manager.
      *
      * @method Phaser.Sound.HTML5AudioSoundManager#setVolume
-     * @fires Phaser.Sound.HTML5AudioSoundManager#volumeEvent
+     * @xfires Phaser.Sound.HTML5AudioSoundManager#volumeEvent
      * @since 3.3.0
      *
      * @param {number} value - The global volume of this Sound Manager.
@@ -432,7 +432,7 @@ var HTML5AudioSoundManager = new Class({
     /**
      * @name Phaser.Sound.HTML5AudioSoundManager#volume
      * @type {number}
-     * @fires Phaser.Sound.HTML5AudioSoundManager#volumeEvent
+     * @xfires Phaser.Sound.HTML5AudioSoundManager#volumeEvent
      * @since 3.0.0
      */
     volume: {
@@ -451,7 +451,7 @@ var HTML5AudioSoundManager = new Class({
                 sound.updateVolume();
             });
 
-            this.emit('volume', this, value);
+            this.xemit('volume', this, value);
         }
 
     }

@@ -45,7 +45,7 @@ var Solver = function (world, bodyA, bodyB)
         bodyA.collideWith(bodyB, 'y');
         bodyB.collideWith(bodyA, 'y');
 
-        world.emit('collide', bodyA, bodyB, 'y');
+        world.xemit('collide', bodyA, bodyB, 'y');
     }
     else if (bodyA.last.y + bodyA.size.y > bodyB.last.y && bodyA.last.y < bodyB.last.y + bodyB.size.y)
     {
@@ -61,7 +61,7 @@ var Solver = function (world, bodyA, bodyB)
         bodyA.collideWith(bodyB, 'x');
         bodyB.collideWith(bodyA, 'x');
 
-        world.emit('collide', bodyA, bodyB, 'x');
+        world.xemit('collide', bodyA, bodyB, 'x');
     }
 };
 

@@ -221,7 +221,7 @@ AudioFile.getAudioURL = function (game, urls)
  * It is available in the default build but can be excluded from custom builds.
  *
  * @method Phaser.Loader.LoaderPlugin#audio
- * @fires Phaser.Loader.LoaderPlugin#addFileEvent
+ * @xfires Phaser.Loader.LoaderPlugin#addFileEvent
  * @since 3.0.0
  *
  * @param {(string|Phaser.Loader.FileTypes.AudioFileConfig|Phaser.Loader.FileTypes.AudioFileConfig[])} key - The key to use for this file, or a file configuration object, or array of them.

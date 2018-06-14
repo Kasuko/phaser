@@ -252,7 +252,7 @@ var Systems = new Class({
 
         pluginManager.addToScene(this, DefaultPlugins.Global, [ DefaultPlugins.CoreScene, GetScenePlugins(this), GetPhysicsPlugins(this) ]);
 
-        this.events.emit('boot', this);
+        this.events.xemit('boot', this);
 
         this.settings.isBooted = true;
     },
@@ -288,13 +288,13 @@ var Systems = new Class({
      */
     step: function (time, delta)
     {
-        this.events.emit('preupdate', time, delta);
+        this.events.xemit('preupdate', time, delta);
 
-        this.events.emit('update', time, delta);
+        this.events.xemit('update', time, delta);
 
         this.sceneUpdate.call(this.scene, time, delta);
 
-        this.events.emit('postupdate', time, delta);
+        this.events.xemit('postupdate', time, delta);
     },
 
     /**
@@ -314,7 +314,7 @@ var Systems = new Class({
 
         this.cameras.render(renderer, displayList);
 
-        this.events.emit('render', renderer);
+        this.events.xemit('render', renderer);
     },
 
     /**
@@ -356,7 +356,7 @@ var Systems = new Class({
 
             this.settings.active = false;
 
-            this.events.emit('pause', this);
+            this.events.xemit('pause', this);
         }
 
         return this;
@@ -378,7 +378,7 @@ var Systems = new Class({
 
             this.settings.active = true;
 
-            this.events.emit('resume', this);
+            this.events.xemit('resume', this);
         }
 
         return this;
@@ -404,7 +404,7 @@ var Systems = new Class({
         this.settings.active = false;
         this.settings.visible = false;
 
-        this.events.emit('sleep', this);
+        this.events.xemit('sleep', this);
 
         return this;
     },
@@ -426,11 +426,11 @@ var Systems = new Class({
         settings.active = true;
         settings.visible = true;
 
-        this.events.emit('wake', this);
+        this.events.xemit('wake', this);
 
         if (settings.isTransition)
         {
-            this.events.emit('transitionwake', settings.transitionFrom, settings.transitionDuration);
+            this.events.xemit('transitionwake', settings.transitionFrom, settings.transitionDuration);
         }
 
         return this;
@@ -577,10 +577,10 @@ var Systems = new Class({
         this.settings.visible = true;
 
         //  For plugins to listen out for
-        this.events.emit('start', this);
+        this.events.xemit('start', this);
 
         //  For user-land code to listen out for
-        this.events.emit('ready', this);
+        this.events.xemit('ready', this);
     },
 
     /**
@@ -595,7 +595,7 @@ var Systems = new Class({
      */
     resize: function (width, height)
     {
-        this.events.emit('resize', width, height);
+        this.events.xemit('resize', width, height);
     },
 
     /**
@@ -620,7 +620,7 @@ var Systems = new Class({
         this.settings.active = false;
         this.settings.visible = false;
 
-        this.events.emit('shutdown', this);
+        this.events.xemit('shutdown', this);
     },
 
     /**
@@ -639,7 +639,7 @@ var Systems = new Class({
         this.settings.active = false;
         this.settings.visible = false;
 
-        this.events.emit('destroy', this);
+        this.events.xemit('destroy', this);
 
         this.events.removeAllListeners();
 

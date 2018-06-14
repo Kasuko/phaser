@@ -473,11 +473,11 @@ var GamepadPlugin = new Class({
 
             if (event.type === 'gamepadconnected')
             {
-                this.emit('connected', pad, event);
+                this.xemit('connected', pad, event);
             }
             else if (event.type === 'gamepaddisconnected')
             {
-                this.emit('disconnected', pad, event);
+                this.xemit('disconnected', pad, event);
             }
         }
     },

@@ -516,7 +516,7 @@ var GameObject = new Class({
             this.preDestroy.call(this);
         }
 
-        this.emit('destroy', this);
+        this.xemit('destroy', this);
 
         var sys = this.scene.sys;
 

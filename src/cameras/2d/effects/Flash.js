@@ -159,7 +159,7 @@ var Flash = new Class({
     /**
      * This event is fired when the flash effect begins to run on a camera.
      *
-     * @event CameraFlashStartEvent
+     * @xevent CameraFlashStartEvent
      * @param {Phaser.Cameras.Scene2D.Camera} camera - The camera that the effect began on.
      * @param {Phaser.Cameras.Scene2D.Effects.Flash} effect - A reference to the effect instance.
      * @param {integer} duration - The duration of the effect.
@@ -171,7 +171,7 @@ var Flash = new Class({
     /**
      * This event is fired when the flash effect completes.
      *
-     * @event CameraFlashCompleteEvent
+     * @xevent CameraFlashCompleteEvent
      * @param {Phaser.Cameras.Scene2D.Camera} camera - The camera that the effect began on.
      * @param {Phaser.Cameras.Scene2D.Effects.Flash} effect - A reference to the effect instance.
      */
@@ -180,8 +180,8 @@ var Flash = new Class({
      * Flashes the Camera to or from the given color over the duration specified.
      *
      * @method Phaser.Cameras.Scene2D.Effects.Flash#start
-     * @fires CameraFlashStartEvent
-     * @fires CameraFlashCompleteEvent
+     * @xfires CameraFlashStartEvent
+     * @xfires CameraFlashCompleteEvent
      * @since 3.5.0
      *
      * @param {integer} [duration=250] - The duration of the effect in milliseconds.
@@ -224,7 +224,7 @@ var Flash = new Class({
         this._onUpdate = callback;
         this._onUpdateScope = context;
 
-        this.camera.emit('cameraflashstart', this.camera, this, duration, red, green, blue);
+        this.camera.xemit('cameraflashstart', this.camera, this, duration, red, green, blue);
 
         return this.camera;
     },
@@ -337,7 +337,7 @@ var Flash = new Class({
 
         this.isRunning = false;
 
-        this.camera.emit('cameraflashcomplete', this.camera, this);
+        this.camera.xemit('cameraflashcomplete', this.camera, this);
     },
 
     /**

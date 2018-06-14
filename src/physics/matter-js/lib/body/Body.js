@@ -705,7 +705,7 @@ var Axes = require('../geometry/Axes');
     /**
     * Fired when a body starts sleeping (where `this` is the body).
     *
-    * @event sleepStart
+    * @xevent sleepStart
     * @this {body} The body that has started sleeping
     * @param {} event An event object
     * @param {} event.source The source object of the event
@@ -715,7 +715,7 @@ var Axes = require('../geometry/Axes');
     /**
     * Fired when a body ends sleeping (where `this` is the body).
     *
-    * @event sleepEnd
+    * @xevent sleepEnd
     * @this {body} The body that has ended sleeping
     * @param {} event An event object
     * @param {} event.source The source object of the event

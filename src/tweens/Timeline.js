@@ -595,7 +595,7 @@ var Timeline = new Class({
             onStart.func.apply(onStart.scope, onStart.params);
         }
 
-        this.emit('start', this);
+        this.xemit('start', this);
     },
 
     /**
@@ -624,7 +624,7 @@ var Timeline = new Class({
                 onLoop.func.apply(onLoop.scope, onLoop.params);
             }
 
-            this.emit('loop', this, this.loopCounter);
+            this.xemit('loop', this, this.loopCounter);
 
             this.resetTweens(true);
 
@@ -652,7 +652,7 @@ var Timeline = new Class({
                 onComplete.func.apply(onComplete.scope, onComplete.params);
             }
 
-            this.emit('complete', this);
+            this.xemit('complete', this);
 
             this.state = TWEEN_CONST.PENDING_REMOVE;
         }
@@ -715,7 +715,7 @@ var Timeline = new Class({
                     onUpdate.func.apply(onUpdate.scope, onUpdate.params);
                 }
 
-                this.emit('update', this);
+                this.xemit('update', this);
 
                 //  Anything still running? If not, we're done
                 if (stillRunning === 0)
@@ -749,7 +749,7 @@ var Timeline = new Class({
                         onComplete.func.apply(onComplete.scope, onComplete.params);
                     }
 
-                    this.emit('complete', this);
+                    this.xemit('complete', this);
 
                     this.state = TWEEN_CONST.PENDING_REMOVE;
                 }
@@ -792,7 +792,7 @@ var Timeline = new Class({
 
         this.state = TWEEN_CONST.PAUSED;
 
-        this.emit('pause', this);
+        this.xemit('pause', this);
 
         return this;
     },
@@ -814,7 +814,7 @@ var Timeline = new Class({
             this.state = this._pausedState;
         }
 
-        this.emit('resume', this);
+        this.xemit('resume', this);
 
         return this;
     },

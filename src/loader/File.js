@@ -360,7 +360,7 @@ var File = new Class({
 
             this.percentComplete = Math.min((this.bytesLoaded / this.bytesTotal), 1);
 
-            this.loader.emit('fileprogress', this, this.percentComplete);
+            this.loader.xemit('fileprogress', this, this.percentComplete);
         }
     },
 
@@ -458,7 +458,7 @@ var File = new Class({
      * });
      * ```
      * 
-     * @event Phaser.Loader.File#fileCompleteEvent
+     * @xevent Phaser.Loader.File#fileCompleteEvent
      * @param {string} key - The key of the file that just loaded and finished processing.
      * @param {string} type - The type of the file that just loaded and finished processing.
      * @param {any} data - The data of the file.
@@ -496,7 +496,7 @@ var File = new Class({
      * });
      * ```
      * 
-     * @event Phaser.Loader.File#singleFileCompleteEvent
+     * @xevent Phaser.Loader.File#singleFileCompleteEvent
      * @param {any} data - The data of the file.
      */
 
@@ -505,8 +505,8 @@ var File = new Class({
      * It will emit a `filecomplete` event from the LoaderPlugin.
      *
      * @method Phaser.Loader.File#pendingDestroy
-     * @fires Phaser.Loader.File#fileCompleteEvent
-     * @fires Phaser.Loader.File#singleFileCompleteEvent
+     * @xfires Phaser.Loader.File#fileCompleteEvent
+     * @xfires Phaser.Loader.File#singleFileCompleteEvent
      * @since 3.7.0
      */
     pendingDestroy: function (data)
@@ -516,8 +516,8 @@ var File = new Class({
         var key = this.key;
         var type = this.type;
 
-        this.loader.emit('filecomplete', key, type, data);
-        this.loader.emit('filecomplete-' + type + '-' + key, key, type, data);
+        this.loader.xemit('filecomplete', key, type, data);
+        this.loader.xemit('filecomplete-' + type + '-' + key, key, type, data);
 
         this.loader.flagForRemoval(this);
     },

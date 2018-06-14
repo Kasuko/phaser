@@ -351,7 +351,7 @@ var ScenePlugin = new Class({
             this.manager.start(key, GetFastValue(config, 'data'));
         }
 
-        this.systems.events.emit('transitionout', target, duration);
+        this.systems.events.xemit('transitionout', target, duration);
 
         this.systems.events.on('update', this.step, this);
 
@@ -424,7 +424,7 @@ var ScenePlugin = new Class({
         this.systems.events.off('update', this.step, this);
 
         //  Notify target scene
-        targetSys.events.emit('transitioncomplete', this.scene);
+        targetSys.events.xemit('transitioncomplete', this.scene);
 
         //  Clear target scene settings
         targetSettings.isTransition = false;

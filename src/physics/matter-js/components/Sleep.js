@@ -70,7 +70,7 @@ var Sleep = {
 
             MatterEvents.on(this.body, 'sleepStart', function (event)
             {
-                world.emit('sleepstart', event, this);
+                world.xemit('sleepstart', event, this);
             });
         }
         else
@@ -99,7 +99,7 @@ var Sleep = {
 
             MatterEvents.on(this.body, 'sleepEnd', function (event)
             {
-                world.emit('sleepend', event, this);
+                world.xemit('sleepend', event, this);
             });
         }
         else

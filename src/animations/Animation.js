@@ -715,7 +715,7 @@ var Animation = new Class({
 
                 component.pendingRepeat = false;
 
-                component.parent.emit('animationrepeat', this, component.currentFrame, component.repeatCounter);
+                component.parent.xemit('animationrepeat', this, component.currentFrame, component.repeatCounter);
             }
         }
     },

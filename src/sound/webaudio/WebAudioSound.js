@@ -176,7 +176,7 @@ var WebAudioSound = new Class({
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#playEvent
+     * @xevent Phaser.Sound.WebAudioSound#playEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the Sound that emitted event.
      */
 
@@ -187,7 +187,7 @@ var WebAudioSound = new Class({
      * you can set 'seek' setting of the config object, provided to this call, to that value.
      *
      * @method Phaser.Sound.WebAudioSound#play
-     * @fires Phaser.Sound.WebAudioSound#playEvent
+     * @xfires Phaser.Sound.WebAudioSound#playEvent
      * @since 3.0.0
      *
      * @param {string} [markerName=''] - If you want to play a marker then provide the marker name here, otherwise omit it to play the full sound.
@@ -206,13 +206,13 @@ var WebAudioSound = new Class({
         this.stopAndRemoveBufferSource();
         this.createAndStartBufferSource();
 
-        this.emit('play', this);
+        this.xemit('play', this);
 
         return true;
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#pauseEvent
+     * @xevent Phaser.Sound.WebAudioSound#pauseEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the Sound that emitted event.
      */
 
@@ -220,7 +220,7 @@ var WebAudioSound = new Class({
      * Pauses the sound.
      *
      * @method Phaser.Sound.WebAudioSound#pause
-     * @fires Phaser.Sound.WebAudioSound#pauseEvent
+     * @xfires Phaser.Sound.WebAudioSound#pauseEvent
      * @since 3.0.0
      *
      * @return {boolean} Whether the sound was paused successfully.
@@ -241,13 +241,13 @@ var WebAudioSound = new Class({
         this.currentConfig.seek = this.getCurrentTime(); // Equivalent to setting paused time
         this.stopAndRemoveBufferSource();
 
-        this.emit('pause', this);
+        this.xemit('pause', this);
 
         return true;
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#resumeEvent
+     * @xevent Phaser.Sound.WebAudioSound#resumeEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the Sound that emitted event.
      */
 
@@ -255,7 +255,7 @@ var WebAudioSound = new Class({
      * Resumes the sound.
      *
      * @method Phaser.Sound.WebAudioSound#resume
-     * @fires Phaser.Sound.WebAudioSound#resumeEvent
+     * @xfires Phaser.Sound.WebAudioSound#resumeEvent
      * @since 3.0.0
      *
      * @return {boolean} Whether the sound was resumed successfully.
@@ -275,13 +275,13 @@ var WebAudioSound = new Class({
         //  \/\/\/ isPlaying = true, isPaused = false \/\/\/
         this.createAndStartBufferSource();
 
-        this.emit('resume', this);
+        this.xemit('resume', this);
 
         return true;
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#stopEvent
+     * @xevent Phaser.Sound.WebAudioSound#stopEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the Sound that emitted event.
      */
 
@@ -289,7 +289,7 @@ var WebAudioSound = new Class({
      * Stop playing this sound.
      *
      * @method Phaser.Sound.WebAudioSound#stop
-     * @fires Phaser.Sound.WebAudioSound#stopEvent
+     * @xfires Phaser.Sound.WebAudioSound#stopEvent
      * @since 3.0.0
      *
      * @return {boolean} Whether the sound was stopped successfully.
@@ -304,7 +304,7 @@ var WebAudioSound = new Class({
         //  \/\/\/ isPlaying = false, isPaused = false \/\/\/
         this.stopAndRemoveBufferSource();
 
-        this.emit('stop', this);
+        this.xemit('stop', this);
 
         return true;
     },
@@ -454,12 +454,12 @@ var WebAudioSound = new Class({
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#endedEvent
+     * @xevent Phaser.Sound.WebAudioSound#endedEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the sound that emitted event.
      */
 
     /**
-     * @event Phaser.Sound.WebAudioSound#loopedEvent
+     * @xevent Phaser.Sound.WebAudioSound#loopedEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the sound that emitted event.
      */
 
@@ -467,8 +467,8 @@ var WebAudioSound = new Class({
      * Update method called automatically by sound manager on every game step.
      *
      * @method Phaser.Sound.WebAudioSound#update
-     * @fires Phaser.Sound.WebAudioSound#endedEvent
-     * @fires Phaser.Sound.WebAudioSound#loopedEvent
+     * @xfires Phaser.Sound.WebAudioSound#endedEvent
+     * @xfires Phaser.Sound.WebAudioSound#loopedEvent
      * @protected
      * @since 3.0.0
      *
@@ -486,7 +486,7 @@ var WebAudioSound = new Class({
 
             this.stopAndRemoveBufferSource();
 
-            this.emit('ended', this);
+            this.xemit('ended', this);
         }
         else if (this.hasLooped)
         {
@@ -503,7 +503,7 @@ var WebAudioSound = new Class({
 
             this.createAndStartLoopBufferSource();
 
-            this.emit('looped', this);
+            this.xemit('looped', this);
         }
     },
 
@@ -614,7 +614,7 @@ var WebAudioSound = new Class({
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#rateEvent
+     * @xevent Phaser.Sound.WebAudioSound#rateEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the sound that emitted the event.
      * @param {number} value - An updated value of Phaser.Sound.WebAudioSound#rate property.
      */
@@ -642,7 +642,7 @@ var WebAudioSound = new Class({
 
             this.calculateRate();
 
-            this.emit('rate', this, value);
+            this.xemit('rate', this, value);
         }
 
     },
@@ -654,7 +654,7 @@ var WebAudioSound = new Class({
      * and 2.0 doubles the audios playback speed.
      *
      * @method Phaser.Sound.WebAudioSound#setRate
-     * @fires Phaser.Sound.WebAudioSound#rateEvent
+     * @xfires Phaser.Sound.WebAudioSound#rateEvent
      * @since 3.3.0
      *
      * @param {number} value - The playback rate at of this Sound.
@@ -669,7 +669,7 @@ var WebAudioSound = new Class({
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#detuneEvent
+     * @xevent Phaser.Sound.WebAudioSound#detuneEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the Sound that emitted event.
      * @param {number} value - An updated value of Phaser.Sound.WebAudioSound#detune property.
      */
@@ -696,7 +696,7 @@ var WebAudioSound = new Class({
 
             this.calculateRate();
 
-            this.emit('detune', this, value);
+            this.xemit('detune', this, value);
         }
 
     },
@@ -706,7 +706,7 @@ var WebAudioSound = new Class({
      * The range of the value is -1200 to 1200, but we recommend setting it to [50](https://en.wikipedia.org/wiki/50_Cent).
      *
      * @method Phaser.Sound.WebAudioSound#setDetune
-     * @fires Phaser.Sound.WebAudioSound#detuneEvent
+     * @xfires Phaser.Sound.WebAudioSound#detuneEvent
      * @since 3.3.0
      *
      * @param {number} value - The range of the value is -1200 to 1200, but we recommend setting it to [50](https://en.wikipedia.org/wiki/50_Cent).
@@ -721,7 +721,7 @@ var WebAudioSound = new Class({
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#muteEvent
+     * @xevent Phaser.Sound.WebAudioSound#muteEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the sound that emitted event.
      * @param {boolean} value - An updated value of Phaser.Sound.WebAudioSound#mute property.
      */
@@ -747,7 +747,7 @@ var WebAudioSound = new Class({
             this.currentConfig.mute = value;
             this.muteNode.gain.setValueAtTime(value ? 0 : 1, 0);
 
-            this.emit('mute', this, value);
+            this.xemit('mute', this, value);
         }
 
     },
@@ -756,7 +756,7 @@ var WebAudioSound = new Class({
      * Sets the muted state of this Sound.
      *
      * @method Phaser.Sound.WebAudioSound#setMute
-     * @fires Phaser.Sound.WebAudioSound#muteEvent
+     * @xfires Phaser.Sound.WebAudioSound#muteEvent
      * @since 3.4.0
      *
      * @param {boolean} value - `true` to mute this sound, `false` to unmute it.
@@ -771,7 +771,7 @@ var WebAudioSound = new Class({
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#volumeEvent
+     * @xevent Phaser.Sound.WebAudioSound#volumeEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the sound that emitted event.
      * @param {number} value - An updated value of Phaser.Sound.WebAudioSound#volume property.
      */
@@ -796,7 +796,7 @@ var WebAudioSound = new Class({
             this.currentConfig.volume = value;
             this.volumeNode.gain.setValueAtTime(value, 0);
 
-            this.emit('volume', this, value);
+            this.xemit('volume', this, value);
         }
     },
 
@@ -804,7 +804,7 @@ var WebAudioSound = new Class({
      * Sets the volume of this Sound.
      *
      * @method Phaser.Sound.WebAudioSound#setVolume
-     * @fires Phaser.Sound.WebAudioSound#volumeEvent
+     * @xfires Phaser.Sound.WebAudioSound#volumeEvent
      * @since 3.4.0
      *
      * @param {number} value - The volume of the sound.
@@ -819,7 +819,7 @@ var WebAudioSound = new Class({
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#seekEvent
+     * @xevent Phaser.Sound.WebAudioSound#seekEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the sound that emitted event.
      * @param {number} value - An updated value of Phaser.Sound.WebAudioSound#seek property.
      */
@@ -876,7 +876,7 @@ var WebAudioSound = new Class({
                     this.createAndStartBufferSource();
                 }
 
-                this.emit('seek', this, value);
+                this.xemit('seek', this, value);
             }
         }
     },
@@ -885,7 +885,7 @@ var WebAudioSound = new Class({
      * Seeks to a specific point in this sound.
      *
      * @method Phaser.Sound.WebAudioSound#setSeek
-     * @fires Phaser.Sound.WebAudioSound#seekEvent
+     * @xfires Phaser.Sound.WebAudioSound#seekEvent
      * @since 3.4.0
      *
      * @param {number} value - The point in the sound to seek to.
@@ -900,7 +900,7 @@ var WebAudioSound = new Class({
     },
 
     /**
-     * @event Phaser.Sound.WebAudioSound#loopEvent
+     * @xevent Phaser.Sound.WebAudioSound#loopEvent
      * @param {Phaser.Sound.WebAudioSound} sound - Reference to the sound that emitted event.
      * @param {boolean} value - An updated value of Phaser.Sound.WebAudioSound#loop property.
      */
@@ -934,7 +934,7 @@ var WebAudioSound = new Class({
                 }
             }
 
-            this.emit('loop', this, value);
+            this.xemit('loop', this, value);
         }
     },
 
@@ -942,7 +942,7 @@ var WebAudioSound = new Class({
      * Sets the loop state of this Sound.
      *
      * @method Phaser.Sound.WebAudioSound#setLoop
-     * @fires Phaser.Sound.WebAudioSound#loopEvent
+     * @xfires Phaser.Sound.WebAudioSound#loopEvent
      * @since 3.4.0
      *
      * @param {boolean} value - `true` to loop this sound, `false` to not loop it.

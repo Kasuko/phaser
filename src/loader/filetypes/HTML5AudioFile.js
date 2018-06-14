@@ -117,7 +117,7 @@ var HTML5AudioFile = new Class({
 
         this.percentComplete = Math.min((this.filesLoaded / this.filesTotal), 1);
 
-        this.loader.emit('fileprogress', this, this.percentComplete);
+        this.loader.xemit('fileprogress', this, this.percentComplete);
 
         if (this.filesLoaded === this.filesTotal)
         {

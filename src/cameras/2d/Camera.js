@@ -1288,7 +1288,7 @@ var Camera = new Class({
     /**
      * This event is fired when a camera is destroyed by the Camera Manager.
      *
-     * @event CameraDestroyEvent
+     * @xevent CameraDestroyEvent
      * @param {Phaser.Cameras.Scene2D.Camera} camera - The camera that was destroyed.
      */
 
@@ -1299,12 +1299,12 @@ var Camera = new Class({
      * cameras are stored in a pool, ready for recycling later, and calling this directly will prevent that.
      *
      * @method Phaser.Cameras.Scene2D.Camera#destroy
-     * @fires CameraDestroyEvent
+     * @xfires CameraDestroyEvent
      * @since 3.0.0
      */
     destroy: function ()
     {
-        this.emit('cameradestroy', this);
+        this.xemit('cameradestroy', this);
 
         this.removeAllListeners();
 

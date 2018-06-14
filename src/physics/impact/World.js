@@ -564,7 +564,7 @@ var World = new Class({
     {
         this.enabled = false;
 
-        this.emit('pause');
+        this.xemit('pause');
 
         return this;
     },
@@ -581,7 +581,7 @@ var World = new Class({
     {
         this.enabled = true;
 
-        this.emit('resume');
+        this.xemit('resume');
 
         return this;
     },

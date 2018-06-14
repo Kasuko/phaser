@@ -208,7 +208,7 @@ var AtlasXMLFile = new Class({
  * It is available in the default build but can be excluded from custom builds.
  *
  * @method Phaser.Loader.LoaderPlugin#atlasXML
- * @fires Phaser.Loader.LoaderPlugin#addFileEvent
+ * @xfires Phaser.Loader.LoaderPlugin#addFileEvent
  * @since 3.7.0
  *
  * @param {(string|Phaser.Loader.FileTypes.AtlasXMLFileConfig|Phaser.Loader.FileTypes.AtlasXMLFileConfig[])} key - The key to use for this file, or a file configuration object, or array of them.

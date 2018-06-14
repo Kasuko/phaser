@@ -456,7 +456,7 @@ var LoaderPlugin = new Class({
     /**
      * This event is fired when a Loader successfully begins to load its queue.
      * 
-     * @event Phaser.Loader.LoaderPlugin#addFileEvent
+     * @xevent Phaser.Loader.LoaderPlugin#addFileEvent
      * @param {string} key - The key of the file that was added.
      * @param {string} type - The type of the file that was added.
      * @param {Phaser.Loader.LoaderPlugin} loader - The Loader that had the file added to it.
@@ -475,7 +475,7 @@ var LoaderPlugin = new Class({
      * however you can call this as long as the file given to it is well formed.
      *
      * @method Phaser.Loader.LoaderPlugin#addFile
-     * @fires Phaser.Loader.LoaderPlugin#addFileEvent
+     * @xfires Phaser.Loader.LoaderPlugin#addFileEvent
      * @since 3.0.0
      *
      * @param {(Phaser.Loader.File|Phaser.Loader.File[])} file - The file, or array of files, to be added to the load queue.
@@ -497,7 +497,7 @@ var LoaderPlugin = new Class({
             {
                 this.list.set(item);
 
-                this.emit('addfile', item.key, item.type, this, item);
+                this.xemit('addfile', item.key, item.type, this, item);
 
                 if (this.isLoading())
                 {
@@ -666,7 +666,7 @@ var LoaderPlugin = new Class({
     /**
      * This event is fired when a Loader successfully begins to load its queue.
      * 
-     * @event Phaser.Loader.LoaderPlugin#startEvent
+     * @xevent Phaser.Loader.LoaderPlugin#startEvent
      * @param {Phaser.Loader.LoaderPlugin} loader - The Loader instance that started.
      */
 
@@ -682,7 +682,7 @@ var LoaderPlugin = new Class({
      * If the Loader is already running this method will simply return.
      *
      * @method Phaser.Loader.LoaderPlugin#start
-     * @fires Phaser.Loader.LoaderPlugin#startEvent
+     * @xfires Phaser.Loader.LoaderPlugin#startEvent
      * @since 3.0.0
      */
     start: function ()
@@ -698,7 +698,7 @@ var LoaderPlugin = new Class({
         this.totalComplete = 0;
         this.totalToLoad = this.list.size;
 
-        this.emit('start', this);
+        this.xemit('start', this);
 
         if (this.list.size === 0)
         {
@@ -723,7 +723,7 @@ var LoaderPlugin = new Class({
      * This event is fired when the Loader updates its progress, typically as a result of
      * a file having completed loading.
      * 
-     * @event Phaser.Loader.LoaderPlugin#progressEvent
+     * @xevent Phaser.Loader.LoaderPlugin#progressEvent
      * @param {float} progress - The current progress of the load. A value between 0 and 1.
      */
 
@@ -733,14 +733,14 @@ var LoaderPlugin = new Class({
      * display a loading bar in your game.
      *
      * @method Phaser.Loader.LoaderPlugin#updateProgress
-     * @fires Phaser.Loader.LoaderPlugin#progressEvent
+     * @xfires Phaser.Loader.LoaderPlugin#progressEvent
      * @since 3.0.0
      */
     updateProgress: function ()
     {
         this.progress = 1 - ((this.list.size + this.inflight.size) / this.totalToLoad);
 
-        this.emit('progress', this.progress);
+        this.xemit('progress', this.progress);
     },
 
     /**
@@ -800,14 +800,14 @@ var LoaderPlugin = new Class({
     /**
      * This event is fired when the a file successfully completes loading, _before_ it is processed.
      * 
-     * @event Phaser.Loader.LoaderPlugin#loadEvent
+     * @xevent Phaser.Loader.LoaderPlugin#loadEvent
      * @param {Phaser.Loader.File} file - The file that has completed loading.
      */
 
     /**
      * This event is fired when the a file errors during load.
      * 
-     * @event Phaser.Loader.LoaderPlugin#loadErrorEvent
+     * @xevent Phaser.Loader.LoaderPlugin#loadErrorEvent
      * @param {Phaser.Loader.File} file - The file that has failed to load.
      */
 
@@ -818,8 +818,8 @@ var LoaderPlugin = new Class({
      * If the file was successful its `onProcess` method is called, otherwise it is added to the delete queue.
      *
      * @method Phaser.Loader.LoaderPlugin#nextFile
-     * @fires Phaser.Loader.LoaderPlugin#loadEvent
-     * @fires Phaser.Loader.LoaderPlugin#loadErrorEvent
+     * @xfires Phaser.Loader.LoaderPlugin#loadEvent
+     * @xfires Phaser.Loader.LoaderPlugin#loadErrorEvent
      * @since 3.0.0
      *
      * @param {Phaser.Loader.File} file - The File that just finished loading, or errored during load.
@@ -837,7 +837,7 @@ var LoaderPlugin = new Class({
 
             this.queue.set(file);
 
-            this.emit('load', file);
+            this.xemit('load', file);
 
             file.onProcess();
         }
@@ -847,7 +847,7 @@ var LoaderPlugin = new Class({
 
             this._deleteQueue.set(file);
 
-            this.emit('loaderror', file);
+            this.xemit('loaderror', file);
 
             this.fileProcessComplete(file);
         }
@@ -907,7 +907,7 @@ var LoaderPlugin = new Class({
      * This event is fired when the Loader has finished loading everything and the queue is empty.
      * By this point every loaded file will now be in its associated cache and ready for use.
      * 
-     * @event Phaser.Loader.LoaderPlugin#completeEvent
+     * @xevent Phaser.Loader.LoaderPlugin#completeEvent
      * @param {Phaser.Loader.File} file - The file that has failed to load.
      */
 
@@ -918,12 +918,12 @@ var LoaderPlugin = new Class({
      * Also clears down the Sets, puts progress to 1 and clears the deletion queue.
      *
      * @method Phaser.Loader.LoaderPlugin#loadComplete
-     * @fires Phaser.Loader.LoaderPlugin#completeEvent
+     * @xfires Phaser.Loader.LoaderPlugin#completeEvent
      * @since 3.7.0
      */
     loadComplete: function ()
     {
-        this.emit('loadcomplete', this);
+        this.xemit('loadcomplete', this);
 
         this.list.clear();
         this.inflight.clear();
@@ -940,7 +940,7 @@ var LoaderPlugin = new Class({
 
         this._deleteQueue.clear();
 
-        this.emit('complete', this, this.totalComplete, this.totalFailed);
+        this.xemit('complete', this, this.totalComplete, this.totalFailed);
     },
 
     /**

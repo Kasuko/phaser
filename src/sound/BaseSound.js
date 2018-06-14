@@ -474,7 +474,7 @@ var BaseSound = new Class({
             return;
         }
 
-        this.emit('destroy', this);
+        this.xemit('destroy', this);
         this.pendingRemove = true;
         this.manager = null;
         this.key = '';

@@ -235,7 +235,7 @@ var KeyCombo = new Class({
 
             if (matched)
             {
-                _this.manager.emit('keycombomatch', _this, event);
+                _this.manager.xemit('keycombomatch', _this, event);
 
                 if (_this.resetOnMatch)
                 {

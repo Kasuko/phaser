@@ -338,7 +338,7 @@ var InputPlugin = new Class({
         this.systems.events.once('destroy', this.destroy, this);
 
         //  Registered input plugins listen for this
-        this.pluginEvents.emit('boot');
+        this.pluginEvents.xemit('boot');
     },
 
     /**
@@ -365,7 +365,7 @@ var InputPlugin = new Class({
         this.enabled = true;
 
         //  Registered input plugins listen for this
-        this.pluginEvents.emit('start');
+        this.pluginEvents.xemit('start');
     },
 
     /**
@@ -379,7 +379,7 @@ var InputPlugin = new Class({
     preUpdate: function ()
     {
         //  Registered input plugins listen for this
-        this.pluginEvents.emit('preUpdate');
+        this.pluginEvents.xemit('preUpdate');
 
         var removeList = this._pendingRemoval;
         var insertList = this._pendingInsertion;
@@ -449,7 +449,7 @@ var InputPlugin = new Class({
             return;
         }
 
-        this.pluginEvents.emit('update', time, delta);
+        this.pluginEvents.xemit('update', time, delta);
 
         var manager = this.manager;
 
@@ -725,7 +725,7 @@ var InputPlugin = new Class({
         var currentlyOver = this._temp;
 
         //  Contains ALL Game Objects currently over in the array
-        this.emit('pointerdown', pointer, currentlyOver);
+        this.xemit('pointerdown', pointer, currentlyOver);
 
         var total = 0;
 
@@ -741,9 +741,9 @@ var InputPlugin = new Class({
 
             total++;
 
-            gameObject.emit('pointerdown', pointer, gameObject.input.localX, gameObject.input.localY, pointer.camera);
+            gameObject.xemit('pointerdown', pointer, gameObject.input.localX, gameObject.input.localY, pointer.camera);
 
-            this.emit('gameobjectdown', pointer, gameObject);
+            this.xemit('gameobjectdown', pointer, gameObject);
         }
 
         return total;
@@ -877,9 +877,9 @@ var InputPlugin = new Class({
                 input.dragStartX = gameObject.x;
                 input.dragStartY = gameObject.y;
 
-                gameObject.emit('dragstart', pointer, input.dragX, input.dragY);
+                gameObject.xemit('dragstart', pointer, input.dragX, input.dragY);
 
-                this.emit('dragstart', pointer, gameObject);
+                this.xemit('dragstart', pointer, gameObject);
             }
 
             pointer.dragState = 4;
@@ -909,29 +909,29 @@ var InputPlugin = new Class({
                     if (index === 0)
                     {
                         //  We're still over it, and it's still the top of the display list, phew ...
-                        gameObject.emit('dragover', pointer, input.target);
+                        gameObject.xemit('dragover', pointer, input.target);
 
-                        this.emit('dragover', pointer, gameObject, input.target);
+                        this.xemit('dragover', pointer, gameObject, input.target);
                     }
                     else if (index > 0)
                     {
                         //  Still over it but it's no longer top of the display list (targets must always be at the top)
-                        gameObject.emit('dragleave', pointer, input.target);
+                        gameObject.xemit('dragleave', pointer, input.target);
 
-                        this.emit('dragleave', pointer, gameObject, input.target);
+                        this.xemit('dragleave', pointer, gameObject, input.target);
 
                         input.target = dropZones[0];
 
-                        gameObject.emit('dragenter', pointer, input.target);
+                        gameObject.xemit('dragenter', pointer, input.target);
 
-                        this.emit('dragenter', pointer, gameObject, input.target);
+                        this.xemit('dragenter', pointer, gameObject, input.target);
                     }
                     else
                     {
                         //  Nope, we've moved on (or the target has!), leave the old target
-                        gameObject.emit('dragleave', pointer, input.target);
+                        gameObject.xemit('dragleave', pointer, input.target);
 
-                        this.emit('dragleave', pointer, gameObject, input.target);
+                        this.xemit('dragleave', pointer, gameObject, input.target);
 
                         //  Anything new to replace it?
                         //  Yup!
@@ -939,9 +939,9 @@ var InputPlugin = new Class({
                         {
                             input.target = dropZones[0];
 
-                            gameObject.emit('dragenter', pointer, input.target);
+                            gameObject.xemit('dragenter', pointer, input.target);
 
-                            this.emit('dragenter', pointer, gameObject, input.target);
+                            this.xemit('dragenter', pointer, gameObject, input.target);
                         }
                         else
                         {
@@ -954,17 +954,17 @@ var InputPlugin = new Class({
                 {
                     input.target = dropZones[0];
 
-                    gameObject.emit('dragenter', pointer, input.target);
+                    gameObject.xemit('dragenter', pointer, input.target);
 
-                    this.emit('dragenter', pointer, gameObject, input.target);
+                    this.xemit('dragenter', pointer, gameObject, input.target);
                 }
 
                 var dragX = pointer.x - gameObject.input.dragX;
                 var dragY = pointer.y - gameObject.input.dragY;
 
-                gameObject.emit('drag', pointer, dragX, dragY);
+                gameObject.xemit('drag', pointer, dragX, dragY);
 
-                this.emit('drag', pointer, gameObject, dragX, dragY);
+                this.xemit('drag', pointer, gameObject, dragX, dragY);
             }
 
             return list.length;
@@ -992,9 +992,9 @@ var InputPlugin = new Class({
 
                     if (input.target)
                     {
-                        gameObject.emit('drop', pointer, input.target);
+                        gameObject.xemit('drop', pointer, input.target);
 
-                        this.emit('drop', pointer, gameObject, input.target);
+                        this.xemit('drop', pointer, gameObject, input.target);
 
                         input.target = null;
 
@@ -1003,9 +1003,9 @@ var InputPlugin = new Class({
 
                     //  And finally the dragend event
 
-                    gameObject.emit('dragend', pointer, input.dragX, input.dragY, dropped);
+                    gameObject.xemit('dragend', pointer, input.dragX, input.dragY, dropped);
 
-                    this.emit('dragend', pointer, gameObject, dropped);
+                    this.xemit('dragend', pointer, gameObject, dropped);
                 }
             }
 
@@ -1032,7 +1032,7 @@ var InputPlugin = new Class({
     {
         var currentlyOver = this._temp;
 
-        this.emit('pointermove', pointer, currentlyOver);
+        this.xemit('pointermove', pointer, currentlyOver);
 
         var total = 0;
 
@@ -1048,9 +1048,9 @@ var InputPlugin = new Class({
 
             total++;
 
-            gameObject.emit('pointermove', pointer, gameObject.input.localX, gameObject.input.localY);
+            gameObject.xemit('pointermove', pointer, gameObject.input.localX, gameObject.input.localY);
 
-            this.emit('gameobjectmove', pointer, gameObject);
+            this.xemit('gameobjectmove', pointer, gameObject);
 
             if (this.topOnly)
             {
@@ -1130,7 +1130,7 @@ var InputPlugin = new Class({
         {
             this.sortGameObjects(justOut);
 
-            this.emit('pointerout', pointer, justOut);
+            this.xemit('pointerout', pointer, justOut);
 
             //  Call onOut for everything in the justOut array
             for (i = 0; i < total; i++)
@@ -1142,9 +1142,9 @@ var InputPlugin = new Class({
                     continue;
                 }
 
-                this.emit('gameobjectout', pointer, gameObject);
+                this.xemit('gameobjectout', pointer, gameObject);
 
-                gameObject.emit('pointerout', pointer);
+                gameObject.xemit('pointerout', pointer);
 
                 manager.resetCursor(gameObject.input);
 
@@ -1159,7 +1159,7 @@ var InputPlugin = new Class({
         {
             this.sortGameObjects(justOver);
 
-            this.emit('pointerover', pointer, justOver);
+            this.xemit('pointerover', pointer, justOver);
 
             //  Call onOver for everything in the justOver array
             for (i = 0; i < total; i++)
@@ -1171,9 +1171,9 @@ var InputPlugin = new Class({
                     continue;
                 }
 
-                this.emit('gameobjectover', pointer, gameObject);
+                this.xemit('gameobjectover', pointer, gameObject);
 
-                gameObject.emit('pointerover', pointer, gameObject.input.localX, gameObject.input.localY);
+                gameObject.xemit('pointerover', pointer, gameObject.input.localX, gameObject.input.localY);
 
                 manager.setCursor(gameObject.input);
 
@@ -1206,7 +1206,7 @@ var InputPlugin = new Class({
         var currentlyOver = this._temp;
 
         //  Contains ALL Game Objects currently up in the array
-        this.emit('pointerup', pointer, currentlyOver);
+        this.xemit('pointerup', pointer, currentlyOver);
 
         //  Go through all objects the pointer was over and fire their events / callbacks
         for (var i = 0; i < currentlyOver.length; i++)
@@ -1220,9 +1220,9 @@ var InputPlugin = new Class({
 
             //  pointerupoutside
 
-            gameObject.emit('pointerup', pointer, gameObject.input.localX, gameObject.input.localY);
+            gameObject.xemit('pointerup', pointer, gameObject.input.localX, gameObject.input.localY);
 
-            this.emit('gameobjectup', pointer, gameObject);
+            this.xemit('gameobjectup', pointer, gameObject);
         }
 
         return currentlyOver.length;
@@ -2044,7 +2044,7 @@ var InputPlugin = new Class({
     shutdown: function ()
     {
         //  Registered input plugins listen for this
-        this.pluginEvents.emit('shutdown');
+        this.pluginEvents.xemit('shutdown');
 
         this._temp.length = 0;
         this._list.length = 0;
@@ -2084,7 +2084,7 @@ var InputPlugin = new Class({
         this.shutdown();
 
         //  Registered input plugins listen for this
-        this.pluginEvents.emit('destroy');
+        this.pluginEvents.xemit('destroy');
 
         this.pluginEvents.removeAllListeners();
 

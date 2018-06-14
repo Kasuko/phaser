@@ -125,7 +125,7 @@ var AnimationManager = new Class({
      * [description]
      *
      * @method Phaser.Animations.AnimationManager#add
-     * @fires AddAnimationEvent
+     * @xfires AddAnimationEvent
      * @since 3.0.0
      *
      * @param {string} key - [description]
@@ -145,7 +145,7 @@ var AnimationManager = new Class({
 
         this.anims.set(key, animation);
 
-        this.emit('add', key, animation);
+        this.xemit('add', key, animation);
 
         return this;
     },
@@ -154,7 +154,7 @@ var AnimationManager = new Class({
      * [description]
      *
      * @method Phaser.Animations.AnimationManager#create
-     * @fires AddAnimationEvent
+     * @xfires AddAnimationEvent
      * @since 3.0.0
      *
      * @param {AnimationConfig} config - [description]
@@ -175,7 +175,7 @@ var AnimationManager = new Class({
 
         this.anims.set(key, anim);
 
-        this.emit('add', key, anim);
+        this.xemit('add', key, anim);
 
         return anim;
     },
@@ -433,7 +433,7 @@ var AnimationManager = new Class({
      * [description]
      *
      * @method Phaser.Animations.AnimationManager#pauseAll
-     * @fires PauseAllAnimationEvent
+     * @xfires PauseAllAnimationEvent
      * @since 3.0.0
      *
      * @return {Phaser.Animations.AnimationManager} This Animation Manager.
@@ -444,7 +444,7 @@ var AnimationManager = new Class({
         {
             this.paused = true;
 
-            this.emit('pauseall');
+            this.xemit('pauseall');
         }
 
         return this;
@@ -487,7 +487,7 @@ var AnimationManager = new Class({
      * [description]
      *
      * @method Phaser.Animations.AnimationManager#remove
-     * @fires RemoveAnimationEvent
+     * @xfires RemoveAnimationEvent
      * @since 3.0.0
      *
      * @param {string} key - [description]
@@ -500,7 +500,7 @@ var AnimationManager = new Class({
 
         if (anim)
         {
-            this.emit('remove', key, anim);
+            this.xemit('remove', key, anim);
 
             this.anims.delete(key);
         }
@@ -512,7 +512,7 @@ var AnimationManager = new Class({
      * [description]
      *
      * @method Phaser.Animations.AnimationManager#resumeAll
-     * @fires ResumeAllAnimationEvent
+     * @xfires ResumeAllAnimationEvent
      * @since 3.0.0
      *
      * @return {Phaser.Animations.AnimationManager} This Animation Manager.
@@ -523,7 +523,7 @@ var AnimationManager = new Class({
         {
             this.paused = false;
 
-            this.emit('resumeall');
+            this.xemit('resumeall');
         }
 
         return this;

@@ -145,7 +145,7 @@ var TextureManager = new Class({
             this.off('onload');
             this.off('onerror');
 
-            this.game.events.emit('ready');
+            this.game.events.xemit('ready');
         }
     },
 
@@ -211,7 +211,7 @@ var TextureManager = new Class({
 
             key.destroy();
 
-            this.emit('removetexture', key.key);
+            this.xemit('removetexture', key.key);
         }
 
         return this;
@@ -236,7 +236,7 @@ var TextureManager = new Class({
 
             image.onerror = function ()
             {
-                _this.emit('onerror', key);
+                _this.xemit('onerror', key);
             };
 
             image.onload = function ()
@@ -245,9 +245,9 @@ var TextureManager = new Class({
 
                 Parser.Image(texture, 0);
 
-                _this.emit('addtexture', key, texture);
+                _this.xemit('addtexture', key, texture);
 
-                _this.emit('onload', key, texture);
+                _this.xemit('onload', key, texture);
             };
 
             image.src = data;
@@ -281,7 +281,7 @@ var TextureManager = new Class({
                 texture.setDataSource(dataSource);
             }
 
-            this.emit('addtexture', key, texture);
+            this.xemit('addtexture', key, texture);
         }
         
         return texture;
@@ -370,7 +370,7 @@ var TextureManager = new Class({
 
             this.list[key] = texture;
 
-            this.emit('addtexture', key, texture);
+            this.xemit('addtexture', key, texture);
         }
 
         return texture;
@@ -449,7 +449,7 @@ var TextureManager = new Class({
                 texture.setDataSource(dataSource);
             }
 
-            this.emit('addtexture', key, texture);
+            this.xemit('addtexture', key, texture);
         }
 
         return texture;
@@ -495,7 +495,7 @@ var TextureManager = new Class({
                 texture.setDataSource(dataSource);
             }
 
-            this.emit('addtexture', key, texture);
+            this.xemit('addtexture', key, texture);
         }
 
         return texture;
@@ -530,7 +530,7 @@ var TextureManager = new Class({
                 texture.setDataSource(dataSource);
             }
 
-            this.emit('addtexture', key, texture);
+            this.xemit('addtexture', key, texture);
         }
 
         return texture;
@@ -565,7 +565,7 @@ var TextureManager = new Class({
                 texture.setDataSource(dataSource);
             }
 
-            this.emit('addtexture', key, texture);
+            this.xemit('addtexture', key, texture);
         }
 
         return texture;
@@ -610,7 +610,7 @@ var TextureManager = new Class({
 
             Parser.SpriteSheet(texture, 0, 0, 0, width, height, config);
 
-            this.emit('addtexture', key, texture);
+            this.xemit('addtexture', key, texture);
         }
 
         return texture;
@@ -675,7 +675,7 @@ var TextureManager = new Class({
                 Parser.SpriteSheet(texture, 0, sheet.cutX, sheet.cutY, sheet.cutWidth, sheet.cutHeight, config);
             }
 
-            this.emit('addtexture', key, texture);
+            this.xemit('addtexture', key, texture);
 
             return texture;
         }

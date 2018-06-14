@@ -1395,7 +1395,7 @@ var Vector = require('../geometry/Vector');
     /**
     * Fired before rendering
     *
-    * @event beforeRender
+    * @xevent beforeRender
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event
@@ -1405,7 +1405,7 @@ var Vector = require('../geometry/Vector');
     /**
     * Fired after rendering
     *
-    * @event afterRender
+    * @xevent afterRender
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event

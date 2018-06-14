@@ -144,7 +144,7 @@ var ScriptFile = new Class({
  * It is available in the default build but can be excluded from custom builds.
  *
  * @method Phaser.Loader.LoaderPlugin#script
- * @fires Phaser.Loader.LoaderPlugin#addFileEvent
+ * @xfires Phaser.Loader.LoaderPlugin#addFileEvent
  * @since 3.0.0
  *
  * @param {(string|Phaser.Loader.FileTypes.ScriptFileConfig|Phaser.Loader.FileTypes.ScriptFileConfig[])} key - The key to use for this file, or a file configuration object, or array of them.

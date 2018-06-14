@@ -318,8 +318,8 @@ var DataManager = new Class({
                     {
                         list[key] = value;
 
-                        events.emit('changedata', parent, key, value);
-                        events.emit('changedata_' + key, parent, value);
+                        events.xemit('changedata', parent, key, value);
+                        events.xemit('changedata_' + key, parent, value);
                     }
                 }
 
@@ -327,7 +327,7 @@ var DataManager = new Class({
 
             list[key] = data;
 
-            events.emit('setdata', parent, key, data);
+            events.xemit('setdata', parent, key, data);
         }
 
         return this;
@@ -456,7 +456,7 @@ var DataManager = new Class({
             delete this.list[key];
             delete this.values[key];
 
-            this.events.emit('removedata', this.parent, key, data);
+            this.events.xemit('removedata', this.parent, key, data);
         }
 
         return this;
@@ -483,7 +483,7 @@ var DataManager = new Class({
             delete this.list[key];
             delete this.values[key];
 
-            this.events.emit('removedata', this, key, data);
+            this.events.xemit('removedata', this, key, data);
         }
 
         return data;

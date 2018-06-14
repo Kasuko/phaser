@@ -360,7 +360,7 @@ var BaseSoundManager = new Class({
     },
 
     /**
-     * @event Phaser.Sound.BaseSoundManager#pauseall
+     * @xevent Phaser.Sound.BaseSoundManager#pauseall
      * @param {Phaser.Sound.BaseSoundManager} soundManager - Reference to the sound manager that emitted event.
      */
 
@@ -368,7 +368,7 @@ var BaseSoundManager = new Class({
      * Pauses all the sounds in the game.
      *
      * @method Phaser.Sound.BaseSoundManager#pauseAll
-     * @fires Phaser.Sound.BaseSoundManager#pauseall
+     * @xfires Phaser.Sound.BaseSoundManager#pauseall
      * @since 3.0.0
      */
     pauseAll: function ()
@@ -378,11 +378,11 @@ var BaseSoundManager = new Class({
             sound.pause();
         });
 
-        this.emit('pauseall', this);
+        this.xemit('pauseall', this);
     },
 
     /**
-     * @event Phaser.Sound.BaseSoundManager#resumeall
+     * @xevent Phaser.Sound.BaseSoundManager#resumeall
      * @param {Phaser.Sound.BaseSoundManager} soundManager - Reference to the sound manager that emitted event.
      */
 
@@ -390,7 +390,7 @@ var BaseSoundManager = new Class({
      * Resumes all the sounds in the game.
      *
      * @method Phaser.Sound.BaseSoundManager#resumeAll
-     * @fires Phaser.Sound.BaseSoundManager#resumeall
+     * @xfires Phaser.Sound.BaseSoundManager#resumeall
      * @since 3.0.0
      */
     resumeAll: function ()
@@ -400,11 +400,11 @@ var BaseSoundManager = new Class({
             sound.resume();
         });
 
-        this.emit('resumeall', this);
+        this.xemit('resumeall', this);
     },
 
     /**
-     * @event Phaser.Sound.BaseSoundManager#stopall
+     * @xevent Phaser.Sound.BaseSoundManager#stopall
      * @param {Phaser.Sound.BaseSoundManager} soundManager - Reference to the sound manager that emitted event.
      */
 
@@ -412,7 +412,7 @@ var BaseSoundManager = new Class({
      * Stops all the sounds in the game.
      *
      * @method Phaser.Sound.BaseSoundManager#stopAll
-     * @fires Phaser.Sound.BaseSoundManager#stopall
+     * @xfires Phaser.Sound.BaseSoundManager#stopall
      * @since 3.0.0
      */
     stopAll: function ()
@@ -422,7 +422,7 @@ var BaseSoundManager = new Class({
             sound.stop();
         });
 
-        this.emit('stopall', this);
+        this.xemit('stopall', this);
     },
 
     /**
@@ -479,10 +479,10 @@ var BaseSoundManager = new Class({
             this.locked = false;
 
             /**
-             * @event Phaser.Sound.BaseSoundManager#unlocked
+             * @xevent Phaser.Sound.BaseSoundManager#unlocked
              * @param {Phaser.Sound.BaseSoundManager} soundManager - Reference to the sound manager that emitted event.
              */
-            this.emit('unlocked', this);
+            this.xemit('unlocked', this);
         }
 
         for (var i = this.sounds.length - 1; i >= 0; i--)
@@ -544,7 +544,7 @@ var BaseSoundManager = new Class({
     },
 
     /**
-     * @event Phaser.Sound.BaseSoundManager#rate
+     * @xevent Phaser.Sound.BaseSoundManager#rate
      * @param {Phaser.Sound.BaseSoundManager} soundManager - Reference to the sound manager that emitted event.
      * @param {number} value - An updated value of Phaser.Sound.BaseSoundManager#rate property.
      */
@@ -556,7 +556,7 @@ var BaseSoundManager = new Class({
      * and 2.0 doubles the audios playback speed.
      *
      * @method Phaser.Sound.BaseSoundManager#setRate
-     * @fires Phaser.Sound.BaseSoundManager#rate
+     * @xfires Phaser.Sound.BaseSoundManager#rate
      * @since 3.3.0
      *
      * @param {number} value - Global playback rate at which all the sounds will be played.
@@ -596,7 +596,7 @@ var BaseSoundManager = new Class({
                 sound.calculateRate();
             });
 
-            this.emit('rate', this, value);
+            this.xemit('rate', this, value);
         }
 
     },
@@ -606,7 +606,7 @@ var BaseSoundManager = new Class({
      * The range of the value is -1200 to 1200, but we recommend setting it to [50](https://en.wikipedia.org/wiki/50_Cent).
      *
      * @method Phaser.Sound.BaseSoundManager#setDetune
-     * @fires Phaser.Sound.BaseSoundManager#detune
+     * @xfires Phaser.Sound.BaseSoundManager#detune
      * @since 3.3.0
      *
      * @param {number} value - The range of the value is -1200 to 1200, but we recommend setting it to [50](https://en.wikipedia.org/wiki/50_Cent).
@@ -621,7 +621,7 @@ var BaseSoundManager = new Class({
     },
 
     /**
-     * @event Phaser.Sound.BaseSoundManager#detune
+     * @xevent Phaser.Sound.BaseSoundManager#detune
      * @param {Phaser.Sound.BaseSoundManager} soundManager - Reference to the sound manager that emitted event.
      * @param {number} value - An updated value of Phaser.Sound.BaseSoundManager#detune property.
      */
@@ -651,7 +651,7 @@ var BaseSoundManager = new Class({
                 sound.calculateRate();
             });
 
-            this.emit('detune', this, value);
+            this.xemit('detune', this, value);
         }
 
     }

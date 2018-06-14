@@ -53,7 +53,7 @@ var BaseCache = new Class({
      *
      * This event is fired by the Cache each time a new object is added to it.
      *
-     * @event Phaser.Cache.BaseCache#addEvent
+     * @xevent Phaser.Cache.BaseCache#addEvent
      * @param {Phaser.Cache.BaseCache} cache - The BaseCache to which the object was added.
      * @param {string} key - The key of the object added to the cache.
      * @param {*} object - A reference to the object added to the cache.
@@ -64,7 +64,7 @@ var BaseCache = new Class({
      * for setting and keeping track of. The item can only be retrieved by using this string.
      *
      * @method Phaser.Cache.BaseCache#add
-     * @fires Phaser.Cache.BaseCache#addEvent
+     * @xfires Phaser.Cache.BaseCache#addEvent
      * @since 3.0.0
      *
      * @param {string} key - The unique key by which the data added to the cache will be referenced.
@@ -76,7 +76,7 @@ var BaseCache = new Class({
     {
         this.entries.set(key, data);
 
-        this.events.emit('add', this, key, data);
+        this.events.xemit('add', this, key, data);
 
         return this;
     },
@@ -133,7 +133,7 @@ var BaseCache = new Class({
      *
      * This event is fired by the Cache each time an object is removed from it.
      *
-     * @event Phaser.Cache.BaseCache#removeEvent
+     * @xevent Phaser.Cache.BaseCache#removeEvent
      * @param {Phaser.Cache.BaseCache} cache - The BaseCache from which the object was removed.
      * @param {string} key - The key of the object removed from the cache.
      * @param {*} object - The object that was removed from the cache.
@@ -147,7 +147,7 @@ var BaseCache = new Class({
      * are relying on this item, it is up to you to sever those relationships prior to removing the item.
      *
      * @method Phaser.Cache.BaseCache#remove
-     * @fires Phaser.Cache.BaseCache#removeEvent
+     * @xfires Phaser.Cache.BaseCache#removeEvent
      * @since 3.0.0
      *
      * @param {string} key - The unique key of the item to remove from the cache.
@@ -162,7 +162,7 @@ var BaseCache = new Class({
         {
             this.entries.delete(key);
 
-            this.events.emit('remove', this, key, entry.data);
+            this.events.xemit('remove', this, key, entry.data);
         }
 
         return this;

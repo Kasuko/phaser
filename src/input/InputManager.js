@@ -353,7 +353,7 @@ var InputManager = new Class({
 
         this.updateBounds();
 
-        this.events.emit('boot');
+        this.events.xemit('boot');
 
         this.game.events.on('prestep', this.update, this);
         this.game.events.on('poststep', this.postUpdate, this);
@@ -417,7 +417,7 @@ var InputManager = new Class({
 
         this._setCursor = 0;
 
-        this.events.emit('update');
+        this.events.xemit('update');
 
         this.ignoreEvents = false;
 
@@ -482,7 +482,7 @@ var InputManager = new Class({
                     break;
 
                 case CONST.POINTER_LOCK_CHANGE:
-                    this.events.emit('pointerlockchange', event, this.mouse.locked);
+                    this.events.xemit('pointerlockchange', event, this.mouse.locked);
                     break;
             }
         }

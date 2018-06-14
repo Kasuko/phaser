@@ -443,7 +443,7 @@ var SceneManager = new Class({
 
             if (settings.isTransition)
             {
-                sys.events.emit('transitioninit', settings.transitionFrom, settings.transitionDuration);
+                sys.events.xemit('transitioninit', settings.transitionFrom, settings.transitionDuration);
             }
         }
 
@@ -613,7 +613,7 @@ var SceneManager = new Class({
 
             if (settings.isTransition)
             {
-                sys.events.emit('transitionstart', settings.transitionFrom, settings.transitionDuration);
+                sys.events.xemit('transitionstart', settings.transitionFrom, settings.transitionDuration);
             }
         }
 

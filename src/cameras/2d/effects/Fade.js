@@ -184,7 +184,7 @@ var Fade = new Class({
     /**
      * This event is fired when the fade in effect begins to run on a camera.
      *
-     * @event CameraFadeInStartEvent
+     * @xevent CameraFadeInStartEvent
      * @param {Phaser.Cameras.Scene2D.Camera} camera - The camera that the effect began on.
      * @param {Phaser.Cameras.Scene2D.Effects.Fade} effect - A reference to the effect instance.
      * @param {integer} duration - The duration of the effect.
@@ -196,7 +196,7 @@ var Fade = new Class({
     /**
      * This event is fired when the fade out effect begins to run on a camera.
      *
-     * @event CameraFadeOutStartEvent
+     * @xevent CameraFadeOutStartEvent
      * @param {Phaser.Cameras.Scene2D.Camera} camera - The camera that the effect began on.
      * @param {Phaser.Cameras.Scene2D.Effects.Fade} effect - A reference to the effect instance.
      * @param {integer} duration - The duration of the effect.
@@ -208,7 +208,7 @@ var Fade = new Class({
     /**
      * This event is fired when the fade in effect completes.
      *
-     * @event CameraFadeInCompleteEvent
+     * @xevent CameraFadeInCompleteEvent
      * @param {Phaser.Cameras.Scene2D.Camera} camera - The camera that the effect began on.
      * @param {Phaser.Cameras.Scene2D.Effects.Fade} effect - A reference to the effect instance.
      */
@@ -216,7 +216,7 @@ var Fade = new Class({
     /**
      * This event is fired when the fade out effect completes.
      *
-     * @event CameraFadeOutCompleteEvent
+     * @xevent CameraFadeOutCompleteEvent
      * @param {Phaser.Cameras.Scene2D.Camera} camera - The camera that the effect began on.
      * @param {Phaser.Cameras.Scene2D.Effects.Fade} effect - A reference to the effect instance.
      */
@@ -225,10 +225,10 @@ var Fade = new Class({
      * Fades the Camera to or from the given color over the duration specified.
      *
      * @method Phaser.Cameras.Scene2D.Effects.Fade#start
-     * @fires CameraFadeInStartEvent
-     * @fires CameraFadeInCompleteEvent
-     * @fires CameraFadeOutStartEvent
-     * @fires CameraFadeOutCompleteEvent
+     * @xfires CameraFadeInStartEvent
+     * @xfires CameraFadeInCompleteEvent
+     * @xfires CameraFadeOutStartEvent
+     * @xfires CameraFadeOutCompleteEvent
      * @since 3.5.0
      *
      * @param {boolean} [direction=true] - The direction of the fade. `true` = fade out (transparent to color), `false` = fade in (color to transparent)
@@ -277,7 +277,7 @@ var Fade = new Class({
 
         var eventName = (direction) ? 'camerafadeoutstart' : 'camerafadeinstart';
 
-        this.camera.emit(eventName, this.camera, this, duration, red, green, blue);
+        this.camera.xemit(eventName, this.camera, this, duration, red, green, blue);
 
         return this.camera;
     },
@@ -393,7 +393,7 @@ var Fade = new Class({
 
         var eventName = (this.direction) ? 'camerafadeoutcomplete' : 'camerafadeincomplete';
 
-        this.camera.emit(eventName, this.camera, this);
+        this.camera.xemit(eventName, this.camera, this);
     },
 
     /**

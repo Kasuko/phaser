@@ -224,7 +224,7 @@ var Common = require('./Common');
     /**
     * Fired at the start of a tick, before any updates to the engine or timing
     *
-    * @event beforeTick
+    * @xevent beforeTick
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event
@@ -234,7 +234,7 @@ var Common = require('./Common');
     /**
     * Fired after engine timing updated, but just before update
     *
-    * @event tick
+    * @xevent tick
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event
@@ -244,7 +244,7 @@ var Common = require('./Common');
     /**
     * Fired at the end of a tick, after engine update and after rendering
     *
-    * @event afterTick
+    * @xevent afterTick
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event
@@ -254,7 +254,7 @@ var Common = require('./Common');
     /**
     * Fired before update
     *
-    * @event beforeUpdate
+    * @xevent beforeUpdate
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event
@@ -264,7 +264,7 @@ var Common = require('./Common');
     /**
     * Fired after update
     *
-    * @event afterUpdate
+    * @xevent afterUpdate
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event
@@ -274,7 +274,7 @@ var Common = require('./Common');
     /**
     * Fired before rendering
     *
-    * @event beforeRender
+    * @xevent beforeRender
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event
@@ -285,7 +285,7 @@ var Common = require('./Common');
     /**
     * Fired after rendering
     *
-    * @event afterRender
+    * @xevent afterRender
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event

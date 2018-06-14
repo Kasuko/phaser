@@ -162,7 +162,7 @@ var Bounds = require('../geometry/Bounds');
     /**
     * Fired when the mouse has moved (or a touch moves) during the last step
     *
-    * @event mousemove
+    * @xevent mousemove
     * @param {} event An event object
     * @param {mouse} event.mouse The engine's mouse instance
     * @param {} event.source The source object of the event
@@ -172,7 +172,7 @@ var Bounds = require('../geometry/Bounds');
     /**
     * Fired when the mouse is down (or a touch has started) during the last step
     *
-    * @event mousedown
+    * @xevent mousedown
     * @param {} event An event object
     * @param {mouse} event.mouse The engine's mouse instance
     * @param {} event.source The source object of the event
@@ -182,7 +182,7 @@ var Bounds = require('../geometry/Bounds');
     /**
     * Fired when the mouse is up (or a touch has ended) during the last step
     *
-    * @event mouseup
+    * @xevent mouseup
     * @param {} event An event object
     * @param {mouse} event.mouse The engine's mouse instance
     * @param {} event.source The source object of the event
@@ -192,7 +192,7 @@ var Bounds = require('../geometry/Bounds');
     /**
     * Fired when the user starts dragging a body
     *
-    * @event startdrag
+    * @xevent startdrag
     * @param {} event An event object
     * @param {mouse} event.mouse The engine's mouse instance
     * @param {body} event.body The body being dragged
@@ -203,7 +203,7 @@ var Bounds = require('../geometry/Bounds');
     /**
     * Fired when the user ends dragging a body
     *
-    * @event enddrag
+    * @xevent enddrag
     * @param {} event An event object
     * @param {mouse} event.mouse The engine's mouse instance
     * @param {body} event.body The body that has stopped being dragged

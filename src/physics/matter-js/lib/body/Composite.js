@@ -559,7 +559,7 @@ var Body = require('./Body');
     /**
     * Fired when a call to `Composite.add` is made, before objects have been added.
     *
-    * @event beforeAdd
+    * @xevent beforeAdd
     * @param {} event An event object
     * @param {} event.object The object(s) to be added (may be a single body, constraint, composite or a mixed array of these)
     * @param {} event.source The source object of the event
@@ -569,7 +569,7 @@ var Body = require('./Body');
     /**
     * Fired when a call to `Composite.add` is made, after objects have been added.
     *
-    * @event afterAdd
+    * @xevent afterAdd
     * @param {} event An event object
     * @param {} event.object The object(s) that have been added (may be a single body, constraint, composite or a mixed array of these)
     * @param {} event.source The source object of the event
@@ -579,7 +579,7 @@ var Body = require('./Body');
     /**
     * Fired when a call to `Composite.remove` is made, before objects have been removed.
     *
-    * @event beforeRemove
+    * @xevent beforeRemove
     * @param {} event An event object
     * @param {} event.object The object(s) to be removed (may be a single body, constraint, composite or a mixed array of these)
     * @param {} event.source The source object of the event
@@ -589,7 +589,7 @@ var Body = require('./Body');
     /**
     * Fired when a call to `Composite.remove` is made, after objects have been removed.
     *
-    * @event afterRemove
+    * @xevent afterRemove
     * @param {} event An event object
     * @param {} event.object The object(s) that have been removed (may be a single body, constraint, composite or a mixed array of these)
     * @param {} event.source The source object of the event

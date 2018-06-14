@@ -149,7 +149,7 @@ var Shake = new Class({
     /**
      * This event is fired when the shake effect begins to run on a camera.
      *
-     * @event CameraShakeStartEvent
+     * @xevent CameraShakeStartEvent
      * @param {Phaser.Cameras.Scene2D.Camera} camera - The camera that the effect began on.
      * @param {Phaser.Cameras.Scene2D.Effects.Shake} effect - A reference to the effect instance.
      * @param {integer} duration - The duration of the effect.
@@ -159,7 +159,7 @@ var Shake = new Class({
     /**
      * This event is fired when the shake effect completes.
      *
-     * @event CameraShakeCompleteEvent
+     * @xevent CameraShakeCompleteEvent
      * @param {Phaser.Cameras.Scene2D.Camera} camera - The camera that the effect began on.
      * @param {Phaser.Cameras.Scene2D.Effects.Shake} effect - A reference to the effect instance.
      */
@@ -168,8 +168,8 @@ var Shake = new Class({
      * Shakes the Camera by the given intensity over the duration specified.
      *
      * @method Phaser.Cameras.Scene2D.Effects.Shake#start
-     * @fires CameraShakeStartEvent
-     * @fires CameraShakeCompleteEvent
+     * @xfires CameraShakeStartEvent
+     * @xfires CameraShakeCompleteEvent
      * @since 3.5.0
      *
      * @param {integer} [duration=100] - The duration of the effect in milliseconds.
@@ -214,7 +214,7 @@ var Shake = new Class({
         this._onUpdate = callback;
         this._onUpdateScope = context;
 
-        this.camera.emit('camerashakestart', this.camera, this, duration, intensity);
+        this.camera.xemit('camerashakestart', this.camera, this, duration, intensity);
 
         return this.camera;
     },
@@ -296,7 +296,7 @@ var Shake = new Class({
 
         this.isRunning = false;
 
-        this.camera.emit('camerashakecomplete', this.camera, this);
+        this.camera.xemit('camerashakecomplete', this.camera, this);
     },
 
     /**

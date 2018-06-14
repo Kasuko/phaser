@@ -350,7 +350,7 @@ var Body = require('../body/Body');
     /**
     * Fired just before an update
     *
-    * @event beforeUpdate
+    * @xevent beforeUpdate
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event
@@ -360,7 +360,7 @@ var Body = require('../body/Body');
     /**
     * Fired after engine update and all collision events
     *
-    * @event afterUpdate
+    * @xevent afterUpdate
     * @param {} event An event object
     * @param {number} event.timestamp The engine.timing.timestamp of the event
     * @param {} event.source The source object of the event
@@ -370,7 +370,7 @@ var Body = require('../body/Body');
     /**
     * Fired after engine update, provides a list of all pairs that have started to collide in the current tick (if any)
     *
-    * @event collisionStart
+    * @xevent collisionStart
     * @param {} event An event object
     * @param {} event.pairs List of affected pairs
     * @param {number} event.timestamp The engine.timing.timestamp of the event
@@ -381,7 +381,7 @@ var Body = require('../body/Body');
     /**
     * Fired after engine update, provides a list of all pairs that are colliding in the current tick (if any)
     *
-    * @event collisionActive
+    * @xevent collisionActive
     * @param {} event An event object
     * @param {} event.pairs List of affected pairs
     * @param {number} event.timestamp The engine.timing.timestamp of the event
@@ -392,7 +392,7 @@ var Body = require('../body/Body');
     /**
     * Fired after engine update, provides a list of all pairs that have ended collision in the current tick (if any)
     *
-    * @event collisionEnd
+    * @xevent collisionEnd
     * @param {} event An event object
     * @param {} event.pairs List of affected pairs
     * @param {number} event.timestamp The engine.timing.timestamp of the event

@@ -129,7 +129,7 @@ var TilemapImpactFile = new Class({
  * It is available in the default build but can be excluded from custom builds.
  *
  * @method Phaser.Loader.LoaderPlugin#tilemapImpact
- * @fires Phaser.Loader.LoaderPlugin#addFileEvent
+ * @xfires Phaser.Loader.LoaderPlugin#addFileEvent
  * @since 3.7.0
  *
  * @param {(string|Phaser.Loader.FileTypes.TilemapImpactFileConfig|Phaser.Loader.FileTypes.TilemapImpactFileConfig[])} key - The key to use for this file, or a file configuration object, or array of them.

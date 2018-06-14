@@ -846,7 +846,7 @@ var Body = new Class({
      * Updates the Body.
      *
      * @method Phaser.Physics.Arcade.Body#update
-     * @fires Phaser.Physics.Arcade.World#worldbounds
+     * @xfires Phaser.Physics.Arcade.World#worldbounds
      * @since 3.0.0
      *
      * @param {number} delta - The delta time, in ms, elapsed since the last frame.
@@ -919,7 +919,7 @@ var Body = new Class({
 
             if (this.collideWorldBounds && this.checkWorldBounds() && this.onWorldBounds)
             {
-                this.world.emit('worldbounds', this, this.blocked.up, this.blocked.down, this.blocked.left, this.blocked.right);
+                this.world.xemit('worldbounds', this, this.blocked.up, this.blocked.down, this.blocked.left, this.blocked.right);
             }
         }
 

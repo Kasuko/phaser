@@ -106,15 +106,15 @@ var Button = new Class({
             if (!this.pressed)
             {
                 this.pressed = true;
-                this.events.emit('down', pad, this, value);
-                this.pad.emit('down', index, value, this);
+                this.events.xemit('down', pad, this, value);
+                this.pad.xemit('down', index, value, this);
             }
         }
         else if (this.pressed)
         {
             this.pressed = false;
-            this.events.emit('up', pad, this, value);
-            this.pad.emit('up', index, value, this);
+            this.events.xemit('up', pad, this, value);
+            this.pad.xemit('up', index, value, this);
         }
     },
 

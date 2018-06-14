@@ -232,12 +232,12 @@ var World = new Class({
 
         MatterEvents.on(engine, 'beforeUpdate', function (event)
         {
-            _this.emit('beforeupdate', event);
+            _this.xemit('beforeupdate', event);
         });
 
         MatterEvents.on(engine, 'afterUpdate', function (event)
         {
-            _this.emit('afterupdate', event);
+            _this.xemit('afterupdate', event);
         });
 
         MatterEvents.on(engine, 'collisionStart', function (event)
@@ -252,7 +252,7 @@ var World = new Class({
                 bodyB = pairs[0].bodyB;
             }
 
-            _this.emit('collisionstart', event, bodyA, bodyB);
+            _this.xemit('collisionstart', event, bodyA, bodyB);
         });
 
         MatterEvents.on(engine, 'collisionActive', function (event)
@@ -267,7 +267,7 @@ var World = new Class({
                 bodyB = pairs[0].bodyB;
             }
 
-            _this.emit('collisionactive', event, bodyA, bodyB);
+            _this.xemit('collisionactive', event, bodyA, bodyB);
         });
 
         MatterEvents.on(engine, 'collisionEnd', function (event)
@@ -282,7 +282,7 @@ var World = new Class({
                 bodyB = pairs[0].bodyB;
             }
 
-            _this.emit('collisionend', event, bodyA, bodyB);
+            _this.xemit('collisionend', event, bodyA, bodyB);
         });
     },
 
@@ -605,7 +605,7 @@ var World = new Class({
     {
         this.enabled = false;
 
-        this.emit('pause');
+        this.xemit('pause');
 
         return this;
     },
@@ -622,7 +622,7 @@ var World = new Class({
     {
         this.enabled = true;
 
-        this.emit('resume');
+        this.xemit('resume');
 
         return this;
     },
