@@ -25,6 +25,125 @@ var TimeStep = require('./TimeStep');
 var VisibilityHandler = require('./VisibilityHandler');
 
 /**
+ * Game ready event.
+ *
+ * This is an internal event that let's the game know when the DOM is ready.
+ *
+ * @event Phaser.Game#ReadyEvent
+ * @since 3.0.0
+ */
+
+/**
+ * Game boot event.
+ *
+ * This is an internal event dispatched when the game has finished booting, but before it is ready to start running.
+ * The global systems use this event to know when to set themselves up, dispatching their own `ready` events as required.
+ *
+ * @event Phaser.Game#BootEvent
+ * @since 3.0.0
+ */
+
+/**
+ * Game Pre-Step event.
+ *
+ * This event is dispatched before the main Step starts.
+ * By this point none of the Scene updates have happened.
+ * Hook into it from plugins or systems that need to update before the Scene Manager does.
+ *
+ * @event Phaser.Game#PrestepEvent
+ * @since 3.8.0
+ *
+ * @param {number} time - [description]
+ * @param {number} delta - [description]
+ */
+
+/**
+ * Game Step event.
+ *
+ * This event is dispatched after Pre-Step and before the Scene Manager steps.
+ * Hook into it from plugins or systems that need to update before the Scene Manager does, but after core Systems.
+ *
+ * @event Phaser.Game#StepEvent
+ * @since 3.8.0
+ *
+ * @param {number} time - [description]
+ * @param {number} delta - [description]
+ */
+
+/**
+ * Game Post-Step event.
+ *
+ * This event is dispatched after the Scene Manager has updated.
+ * Hook into it from plugins or systems that need to do things before the render starts.
+ *
+ * @event Phaser.Game#PoststepEvent
+ * @since 3.8.0
+ *
+ * @param {number} time - [description]
+ * @param {number} delta - [description]
+ */
+
+/**
+ * Game Pre-Render event.
+ *
+ * This event is dispatched immediately before any of the Scenes have started to render.
+ * The renderer will already have been initialized this frame, clearing itself and preparing to receive
+ * the Scenes for rendering, but it won't have actually drawn anything yet.
+ *
+ * @event Phaser.Game#PrerenderEvent
+ * @since 3.0.0
+ *
+ * @param {(Phaser.Renderer.Canvas.CanvasRenderer|Phaser.Renderer.WebGL.WebGLRenderer)} renderer - A reference to the current renderer.
+ */
+
+/**
+ * Game Post-Render event.
+ *
+ * This event is dispatched right at the end of the render process.
+ * Every Scene will have rendered and drawn to the canvas.
+ *
+ * @event Phaser.Game#PostrenderEvent
+ * @since 3.0.0
+ *
+ * @param {(Phaser.Renderer.Canvas.CanvasRenderer|Phaser.Renderer.WebGL.WebGLRenderer)} renderer - A reference to the current renderer.
+ */
+
+/**
+ * Game Pause event.
+ *
+ * This event is dispatched when the game loop enters a paused state, usually as a result of the Visibility Handler.
+ *
+ * @event Phaser.Game#PauseEvent
+ * @since 3.0.0
+ */
+
+/**
+ * Game Resume event.
+ *
+ * This event is dispatched when the game loop leaves a paused state and resumes running.
+ *
+ * @event Phaser.Game#ResumeEvent
+ * @since 3.0.0
+ */
+
+/**
+ * Game Resize event.
+ *
+ * @event Phaser.Game#ResizeEvent
+ * @since 3.2.0
+ *
+ * @param {number} width - The new width of the Game.
+ * @param {number} height - The new height of the Game.
+ */
+
+/**
+ * Game Destroy event.
+ *
+ * @event Phaser.Game#DestroyEvent
+ * @since 3.0.0
+ */
+
+/**
  * @classdesc
  * The Phaser.Game instance is the main controller for the entire Phaser game. It is responsible
  * for handling the boot process, parsing the configuration values, creating the renderer,
@@ -279,29 +398,13 @@ var Game = new Class({
     },
 
     /**
-     * [description]
-     *
-     * @event Phaser.Game#ReadyEvent
-     * @since 3.0.0
-     */
-
-    /**
-     * Game boot event.
-     *
-     * This is an internal event dispatched when the game has finished booting, but before it is ready to start running.
-     * The global systems use this event to know when to set themselves up, dispatching their own `ready` events as required.
-     *
-     * @xevent Phaser.Game#boot
-     */
-
-    /**
      * This method is called automatically when the DOM is ready. It is responsible for creating the renderer,
      * displaying the Debug Header, adding the game canvas to the DOM and emitting the 'boot' event.
      * It listens for a 'ready' event from the base systems and once received it will call `Game.start`.
      *
      * @method Phaser.Game#boot
      * @protected
-     * @xfires Phaser.Game#boot
+     * @fires Phaser.Game#BootEvent
      * @since 3.0.0
      */
     boot: function ()
@@ -316,7 +419,7 @@ var Game = new Class({
 
         AddToDOM(this.canvas, this.config.parent);
 
-        this.events.xemit('boot');
+        this.events.emit('boot');
 
         //  The Texture Manager has to wait on a couple of non-blocking events before it's fully ready, so it will emit this event
         this.events.once('ready', this.start, this);
@@ -356,60 +459,6 @@ var Game = new Class({
         eventEmitter.on('focus', this.onFocus, this);
     },
 
-    /**
-     * Game Pre-Step event.
-     *
-     * This event is dispatched before the main Step starts.
-     * By this point none of the Scene updates have happened.
-     * Hook into it from plugins or systems that need to update before the Scene Manager does.
-     *
-     * @xevent Phaser.Game#prestepEvent
-     * @param {number} time - [description]
-     * @param {number} delta - [description]
-     */
-
-    /**
-     * Game Step event.
-     *
-     * This event is dispatched after Pre-Step and before the Scene Manager steps.
-     * Hook into it from plugins or systems that need to update before the Scene Manager does, but after core Systems.
-     *
-     * @xevent Phaser.Game#stepEvent
-     * @param {number} time - [description]
-     * @param {number} delta - [description]
-     */
-
-    /**
-     * Game Post-Step event.
-     *
-     * This event is dispatched after the Scene Manager has updated.
-     * Hook into it from plugins or systems that need to do things before the render starts.
-     *
-     * @xevent Phaser.Game#poststepEvent
-     * @param {number} time - [description]
-     * @param {number} delta - [description]
-     */
-
-    /**
-     * Game Pre-Render event.
-     *
-     * This event is dispatched immediately before any of the Scenes have started to render.
-     * The renderer will already have been initialized this frame, clearing itself and preparing to receive
-     * the Scenes for rendering, but it won't have actually drawn anything yet.
-     *
-     * @xevent Phaser.Game#prerenderEvent
-     * @param {(Phaser.Renderer.Canvas.CanvasRenderer|Phaser.Renderer.WebGL.WebGLRenderer)} renderer - A reference to the current renderer.
-     */
-
-    /**
-     * Game Post-Render event.
-     *
-     * This event is dispatched right at the end of the render process.
-     * Every Scene will have rendered and drawn to the canvas.
-     *
-     * @xevent Phaser.Game#postrenderEvent
-     * @param {(Phaser.Renderer.Canvas.CanvasRenderer|Phaser.Renderer.WebGL.WebGLRenderer)} renderer - A reference to the current renderer.
-     */
 
     /**
      * The main Game Step. Called automatically by the Time Step, once per browser frame (typically as a result of
@@ -420,11 +469,11 @@ var Game = new Class({
      * It will then render each Scene in turn, via the Renderer. This process emits `prerender` and `postrender` events.
      *
      * @method Phaser.Game#step
-     * @xfires Phaser.Game#prestepEvent
-     * @xfires Phaser.Game#stepEvent
-     * @xfires Phaser.Game#poststepEvent
-     * @xfires Phaser.Game#prerenderEvent
-     * @xfires Phaser.Game#postrenderEvent
+     * @fires Phaser.Game#PrestepEvent
+     * @fires Phaser.Game#StepEvent
+     * @fires Phaser.Game#PoststepEvent
+     * @fires Phaser.Game#PrerenderEvent
+     * @fires Phaser.Game#PostrenderEvent
      * @since 3.0.0
      *
      * @param {integer} time - The current timestamp as generated by the Request Animation Frame or SetTimeout.
@@ -441,11 +490,11 @@ var Game = new Class({
 
         //  Global Managers like Input and Sound update in the prestep
 
-        eventEmitter.xemit('prestep', time, delta);
+        eventEmitter.emit('prestep', time, delta);
 
         //  This is mostly meant for user-land code and plugins
 
-        eventEmitter.xemit('step', time, delta);
+        eventEmitter.emit('step', time, delta);
 
         //  Update the Scene Manager and all active Scenes
 
@@ -453,7 +502,7 @@ var Game = new Class({
 
         //  Our final event before rendering starts
 
-        eventEmitter.xemit('poststep', time, delta);
+        eventEmitter.emit('poststep', time, delta);
 
         var renderer = this.renderer;
 
@@ -461,7 +510,7 @@ var Game = new Class({
 
         renderer.preRender();
 
-        eventEmitter.xemit('prerender', renderer, time, delta);
+        eventEmitter.emit('prerender', renderer, time, delta);
 
         //  The main render loop. Iterates all Scenes and all Cameras in those scenes, rendering to the renderer instance.
 
@@ -473,7 +522,7 @@ var Game = new Class({
 
         //  The final event before the step repeats. Your last chance to do anything to the canvas before it all starts again.
 
-        eventEmitter.xemit('postrender', renderer, time, delta);
+        eventEmitter.emit('postrender', renderer, time, delta);
     },
 
     /**
@@ -487,8 +536,11 @@ var Game = new Class({
      * This process emits `prerender` and `postrender` events, even though nothing actually displays.
      *
      * @method Phaser.Game#headlessStep
-     * @xfires Phaser.Game#prerenderEvent
-     * @xfires Phaser.Game#postrenderEvent
+     * @fires Phaser.Game#PrestepEvent
+     * @fires Phaser.Game#StepEvent
+     * @fires Phaser.Game#PoststepEvent
+     * @fires Phaser.Game#PrerenderEvent
+     * @fires Phaser.Game#PostrenderEvent
      * @since 3.2.0
      *
      * @param {integer} time - The current timestamp as generated by the Request Animation Frame or SetTimeout.
@@ -500,30 +552,22 @@ var Game = new Class({
 
         //  Global Managers
 
-        eventEmitter.xemit('prestep', time, delta);
+        eventEmitter.emit('prestep', time, delta);
 
-        eventEmitter.xemit('step', time, delta);
+        eventEmitter.emit('step', time, delta);
 
         //  Scenes
 
         this.scene.update(time, delta);
 
-        eventEmitter.xemit('poststep', time, delta);
+        eventEmitter.emit('poststep', time, delta);
 
         //  Render
 
-        eventEmitter.xemit('prerender');
+        eventEmitter.emit('prerender');
 
-        eventEmitter.xemit('postrender');
+        eventEmitter.emit('postrender');
     },
-
-    /**
-     * Game Pause event.
-     *
-     * This event is dispatched when the game loop enters a paused state, usually as a result of the Visibility Handler.
-     *
-     * @xevent Phaser.Game#pauseEvent
-     */
 
     /**
      * Called automatically by the Visibility Handler.
@@ -531,23 +575,15 @@ var Game = new Class({
      *
      * @method Phaser.Game#onHidden
      * @protected
-     * @xfires Phaser.Game#pauseEvent
+     * @fires Phaser.Game#PauseEvent
      * @since 3.0.0
      */
     onHidden: function ()
     {
         this.loop.pause();
 
-        this.events.xemit('pause');
+        this.events.emit('pause');
     },
-
-    /**
-     * Game Resume event.
-     *
-     * This event is dispatched when the game loop leaves a paused state and resumes running.
-     *
-     * @xevent Phaser.Game#resumeEvent
-     */
 
     /**
      * Called automatically by the Visibility Handler.
@@ -555,14 +591,14 @@ var Game = new Class({
      *
      * @method Phaser.Game#onVisible
      * @protected
-     * @xfires Phaser.Game#resumeEvent
+     * @fires Phaser.Game#ResumeEvent
      * @since 3.0.0
      */
     onVisible: function ()
     {
         this.loop.resume();
 
-        this.events.xemit('resume');
+        this.events.emit('resume');
     },
 
     /**
@@ -596,18 +632,11 @@ var Game = new Class({
     },
 
     /**
-     * Game Resize event.
-     *
-     * @xevent Phaser.Game#resizeEvent
-     * @param {number} width - The new width of the Game.
-     * @param {number} height - The new height of the Game.
-     */
-
-    /**
      * Updates the Game Config with the new width and height values given.
      * Then resizes the Renderer and Input Manager scale.
      *
      * @method Phaser.Game#resize
+     * @fires Phaser.Game#ResizeEvent
      * @since 3.2.0
      *
      * @param {number} width - The new width of the game.
@@ -624,7 +653,7 @@ var Game = new Class({
 
         this.scene.resize(width, height);
 
-        this.events.xemit('resize', width, height);
+        this.events.emit('resize', width, height);
     },
 
     /**
@@ -648,11 +677,12 @@ var Game = new Class({
      *
      * @method Phaser.Game#runDestroy
      * @private
+     * @fires Phaser.Game#DestroyEvent
      * @since 3.5.0
      */
     runDestroy: function ()
     {
-        this.events.xemit('destroy');
+        this.events.emit('destroy');
 
         this.events.removeAllListeners();
 
