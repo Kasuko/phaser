@@ -144,6 +144,60 @@ var VisibilityHandler = require('./VisibilityHandler');
  */
 
 /**
+ * Game hidden event.
+ *
+ * The document in which the Game is embedded has entered a hidden state.
+ *
+ * @event Phaser.Game#HiddenEvent
+ * @since 3.0.0
+ */
+
+/**
+ * Game visible event.
+ *
+ * The document in which the Game is embedded has entered a visible state.
+ *
+ * @event Phaser.Game#VisibleEvent
+ * @since 3.0.0
+ */
+
+/**
+ * Game blur event.
+ *
+ * The window in which the Game is embedded has entered a blurred state.
+ *
+ * @event Phaser.Game#BlurEvent
+ * @since 3.0.0
+ */
+
+/**
+ * Game focus event.
+ *
+ * The window in which the Game is embedded has entered a focused state.
+ *
+ * @event Phaser.Game#FocusEvent
+ * @since 3.0.0
+ */
+
+/**
+ * Game mouseout event.
+ *
+ * The window in which the Game is embedded has lost mouse focus.
+ *
+ * @event Phaser.Game#MouseoutEvent
+ * @since 3.10.0
+ */
+
+/**
+ * Game mouseover event.
+ *
+ * The window in which the Game is embedded has gained mouse focus.
+ *
+ * @event Phaser.Game#MouseoverEvent
+ * @since 3.10.0
+ */
+
+/**
  * @classdesc
  * The Phaser.Game instance is the main controller for the entire Phaser game. It is responsible
  * for handling the boot process, parsing the configuration values, creating the renderer,

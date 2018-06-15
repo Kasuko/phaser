@@ -5,47 +5,17 @@
  */
 
 /**
- * Visibility Handler hidden event.
- *
- * The document in which the Game is embedded has entered a hidden state.
- *
- * @xevent Phaser.Boot.VisibilityHandler#hidden
- */
-
-/**
- * Visibility Handler visible event.
- *
- * The document in which the Game is embedded has entered a visible state.
- *
- * @xevent Phaser.Boot.VisibilityHandler#visible
- */
-
-/**
- * Visibility Handler blur event.
- *
- * The window in which the Game is embedded has entered a blurred state.
- *
- * @xevent Phaser.Boot.VisibilityHandler#blur
- */
-
-/**
- * Visibility Handler focus event.
- *
- * The window in which the Game is embedded has entered a focused state.
- *
- * @xevent Phaser.Boot.VisibilityHandler#focus
- */
-
-/**
  * The Visibility Handler is responsible for listening out for document level visibility change events.
  * This includes `visibilitychange` if the browser supports it, and blur and focus events. It then uses
  * the provided Event Emitter and fires the related events.
  *
  * @function Phaser.Boot.VisibilityHandler
- * @xfires Phaser.Boot.VisibilityHandler#hidden
- * @xfires Phaser.Boot.VisibilityHandler#visible
- * @xfires Phaser.Boot.VisibilityHandler#blur
- * @xfires Phaser.Boot.VisibilityHandler#focus
+ * @fires Phaser.Game#HiddenEvent
+ * @fires Phaser.Game#VisibleEvent
+ * @fires Phaser.Game#BlurEvent
+ * @fires Phaser.Game#FocusEvent
+ * @fires Phaser.Game#MouseoutEvent
+ * @fires Phaser.Game#MouseoverEvent
  * @since 3.0.0
  *
  * @param {Phaser.Game} game - The Game instance this Visibility Handler is working on.
@@ -82,11 +52,11 @@ var VisibilityHandler = function (game)
     {
         if (document.hidden || event.type === 'pause')
         {
-            eventEmitter.xemit('hidden');
+            eventEmitter.emit('hidden');
         }
         else
         {
-            eventEmitter.xemit('visible');
+            eventEmitter.emit('visible');
         }
     };
 
@@ -97,12 +67,12 @@ var VisibilityHandler = function (game)
 
     window.onblur = function ()
     {
-        eventEmitter.xemit('blur');
+        eventEmitter.emit('blur');
     };
 
     window.onfocus = function ()
     {
-        eventEmitter.xemit('focus');
+        eventEmitter.emit('focus');
     };
 
     //  Automatically give the window focus unless config says otherwise
@@ -121,13 +91,13 @@ var VisibilityHandler = function (game)
         game.canvas.onmouseout = function ()
         {
             game.isOver = false;
-            eventEmitter.xemit('mouseout');
+            eventEmitter.emit('mouseout');
         };
 
         game.canvas.onmouseover = function ()
         {
             game.isOver = true;
-            eventEmitter.xemit('mouseover');
+            eventEmitter.emit('mouseover');
         };
     }
 };
